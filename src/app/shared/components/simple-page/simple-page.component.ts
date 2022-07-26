@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-simple-page',
@@ -6,9 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simple-page.component.css']
 })
 export class SimplePageComponent implements OnInit {
+  @Input() title: string='';
+  @Input() subtitle?: string;
+  @Input() number?: string;
+  @Input() icon?: string;
+  @Input() buttonText: string = '';
+  @Input() centerText?: boolean = false;
+  @Input() buttonDisabled?: boolean = false;
+  @Input() route?: string | undefined;
+  @Output() buttonEvent = new EventEmitter();
 
-  constructor() { }
-
+  constructor( private router: Router) { }
+  buttonClicked(){
+    if(this.route){
+      this.router.navigateByUrl(this.route);
+    }
+    else{
+      this.buttonEvent.emit();
+    }
+  }
   ngOnInit(): void {
   }
 
