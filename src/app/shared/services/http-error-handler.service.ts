@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 export class HttpErrorHandlerService {
 
   constructor() { }
-  handleError(err: HttpErrorResponse): Observable{
+  handleError(err: HttpErrorResponse): Observable<never>{
     let displayMessage = '';
     if(err.error instanceof ErrorEvent){
       displayMessage = `Client-side error: ${err.error.message}`;
