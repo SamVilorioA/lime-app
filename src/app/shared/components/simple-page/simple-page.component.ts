@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-simple-page',
@@ -16,7 +17,7 @@ export class SimplePageComponent implements OnInit {
   @Input() route?: string | undefined;
   @Output() buttonEvent = new EventEmitter();
 
-  constructor( private router: Router) { }
+  constructor(private router: Router) { }
   buttonClicked(){
     if(this.route){
       this.router.navigateByUrl(this.route);
