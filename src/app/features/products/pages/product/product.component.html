@@ -1,1 +1,26 @@
-<p>product works!</p>
+<div id="containner">
+    <mat-card *ngIf="product" class="product-card">
+        <img mat-card-image src="{{product.imageUrl}}" alt="Photo of a product">
+    </mat-card>
+    <mat-card-content>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>
+            {{ product.prices[0].compareAtAmountFloat | currency: 'EUR'}}
+        </mat-card-subtitle>
+        <p>
+            {{ product.description }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <app-item-quantity [quantity]="quantity" [maxValue]="10" (setQuantityEvent)="setQuantity($event)">
+        </app-item-quantity>
+        <button mat-raised-button color="accent" (click)="addItemToCart()">
+            <mat-icon> add_shopping_cart</mat-icon>
+            Add to cart
+        </button>
+        <button mat-raised-button color="primary" (click)="goBack()">
+            <mat-icon>storefront</mat-icon>
+            Continue shopping
+        </button>
+    </mat-card-actions>
+</div>
