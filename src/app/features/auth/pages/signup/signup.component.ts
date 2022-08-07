@@ -20,19 +20,20 @@ export class SignupComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8)]],
     confirmedPassword: ['', [Validators.required]]
   }, { validators: this.matchPasswords });
-  @ViewChild(FormGroupDirective): sufDirective: FormGroupDirective | undefined;
+  @ViewChild(FormGroupDirective) sufDirective: FormGroupDirective | undefined;
   
   constructor(private customer: CustomerService, private fb: FormBuilder, private snackBar: MatSnackBar,
     private router: Router, private header: HeaderService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.header.setHeaderButtonsVisibility(false);
   }
   matchPasswords(signupGroup: AbstractControl): ValidationErrors | null {
     const password = signupGroup.get('password')?.value;
     const confirmedPassword = signupGroup.get('confirmedPassword')?.value;
-    return password == confirmedPassword ? null: {differentPasswords: true};
+    return password == confirmedPassword ? null : {differentPasswords: true};
   }
+
   get password(){ return this.signupForm.get('password');}
   get confirmedPassword(){
     return this.signupForm.get('confirmedPassword');
