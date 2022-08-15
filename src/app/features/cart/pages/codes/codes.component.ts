@@ -12,7 +12,7 @@ import { OrderService } from 'src/app/data/services/order.service';
   templateUrl: './codes.component.html',
   styleUrls: ['./codes.component.css']
 })
-export class CodesComponent implements OnInit {
+export class CodesComponent {
   couponCode = new FormControl('');
   giftCardCode = new FormControl('');
   @ViewChild(FormControlDirective) codesDirective: FormControlDirective | undefined;

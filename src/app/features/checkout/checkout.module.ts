@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AddressComponent } from './components/address/address.component';
 import { AddressListComponent } from './components/address-list/address-list.component';
 import { CountrySelectComponent } from './components/country-select/country-select.component';
@@ -20,8 +19,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
-
-
 
 @NgModule({
   declarations: [AddressComponent, AddressListComponent, CountrySelectComponent, 
@@ -48,8 +45,7 @@ import { SharedModule } from '../../shared/shared.module';
     MatMenuModule,
     MatRadioModule,
     ReactiveFormsModule,
-    SharedModule,
-    CommonModule
+    SharedModule
   ]
 })
 export class CheckoutModule { }

@@ -41,6 +41,9 @@ export class BillingAddressComponent implements OnInit {
   setCustomerAddress(customerAddressId: string){
     this.selectedCustomerAddressId = customerAddressId;
   }
+  setSameShippingAddressAsBilling(change: boolean) {
+    this.sameShippingAddressAsBilling = change;
+  }
   private createAddress(address: Address){
     this.addresses.createAddress(address).pipe(concatMap(address => { const update = this.updateOrderObservable({
       id: this.cart.orderId,
